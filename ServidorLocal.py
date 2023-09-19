@@ -10,6 +10,7 @@ import socket
 import math
 import re
 import os
+import threading
 from Request import Request
 from Response import Response
 
@@ -46,6 +47,8 @@ class ServidorLocal:
             print(f"O servidor está no endereço {self.IP_DO_SERVIDOR}:{self.PORTA_DO_SERVIDOR}")
 
             conexaoDoSocket, addr = self.SERVER.accept()
+            #thread = threading.Thread(target=self, args=(conexaoDoSocket, addr))
+            #thread.start()
             print(f"A nova conexão {addr} foi conectada.")
 
             try:
